@@ -1,0 +1,57 @@
+@use "sass:map";
+
+// 단위 숫자 맵 초기화
+$number_0: ();
+$number_1: ();
+$number_10: ();
+
+@for $i from 0 through 40 { // 0.1단위 값 
+    // $number_0: map.set($number_0, $i, round($i * 0.1, 2)); // (최대 2자리 소수 반올림)
+    $number_0: map.set($number_0, $i, $i * 0.1);
+}
+@for $i from 1 through 100 { // 1단위 정수 값
+    $number_1: map.set($number_1, $i, $i * 1);
+}
+@for $i from 1 through 20 { // 10단위 정수 값
+    $number_10: map.set($number_10, $i, $i * 10);
+}
+@each $key, $value in $number_10 { // 10단위
+}
+@each $key, $value in $number_1 { // 1단위
+    .max_w#{$key} { max-width: #{$value}rem; }
+    .min_h#{$key} { min-height: #{$value}rem; }
+    .w_#{$key} { width: #{$value}%; }
+}
+@each $key, $value in $number_0 {  // 0.1단위
+    // line-height
+    .lh_#{$key} { line-height: #{$value}rem; }
+    // margin
+    .mg_#{$key} { margin: #{$value}rem; }
+    .mg_#{$key}a { margin: #{$value}rem auto; }
+    .mg_t#{$key} { margin-top: #{$value}rem; }
+    .mg_r#{$key} { margin-right: #{$value}rem; }
+    .mg_l#{$key} { margin-left: #{$value}rem; }
+    .mg_b#{$key} { margin-bottom: #{$value}rem; }
+    .mg_w#{$key} { margin: 0 #{$value}rem; }
+    .mg_h#{$key} { margin: #{$value}rem 0; }
+    // padding
+    .pd_#{$key} { padding: #{$value}rem; }
+    .pd_t#{$key} { padding-top: #{$value}rem; }
+    .pd_r#{$key} { padding-right: #{$value}rem; }
+    .pd_l#{$key} { padding-left: #{$value}rem; }
+    .pd_b#{$key} { padding-bottom: #{$value}rem; }
+    .pd_w#{$key} { padding: 0 #{$value}rem; }
+    .pd_h#{$key} { padding: #{$value}rem 0; }
+    // font-size
+    .fs_#{$key} { font-size: #{$value}rem; }
+    // button
+    .bt_#{$key}, .btm_#{$key} { height: #{$value}rem; padding: 0 #{$value * 0.2}rem; }
+    .btm_#{$key} { margin: 0 .3rem; }
+}
+
+@each $key1, $value1 in $number_0 {
+    @each $key2, $value2 in $number_0 {
+        .pd_hw#{$key1}-#{$key2} { padding: #{$value1}rem #{$value2}rem; }
+        .mg_hw#{$key1}-#{$key2} { margin: #{$value1}rem #{$value2}rem; }
+    }
+}

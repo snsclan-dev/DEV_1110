@@ -1,0 +1,116 @@
+/* z-index
+    layout_loading: 1000
+    layout_modal: 900, layout_popup: 910, layout_confirm: 920
+    layout_image: 100
+    layout_video: 90
+    layout_footer: 50
+    kakao_button: 10
+*/
+:root{
+    --max_width: 120rem; --header_height: 3.4rem; --font: 'Noto Sans', Arial, Helvetica, sans-serif;
+    --white: #fff; --red: #f00; --pink: #ff80bf; --orange: #ff8c00; --lblue: #80adff; --blue: #0060cc; --green: #090; --purple: #8b00ff; --gray: #999; --lgray: #ccc; --black: #1d1d1d;
+    --box: solid 1px var(--lgray); --bg: #f5f5f5;
+}
+* { margin: 0; padding: 0; font-family: var(--font); word-break: break-word; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+html { min-width: 40rem; max-width: 100vw; font-size: 62.5%; -webkit-text-size-adjust: none; background-color: #fff; }
+body { min-height: 60rem; line-height: 2.4rem; font-size: 1.4rem; color: #1d1d1d; }
+@media (max-width: 480px) { html { font-size: 58%; } }
+
+a, button{ color: inherit; text-decoration: none; cursor: pointer; }
+.none{ display: none; } .hidden{ visibility: hidden; } .cursor{ cursor: pointer; } .block { display: block; }
+.line{ display: inline-block; vertical-align: middle; }
+.align{ display: flex; align-items: center; }
+.va > *{ vertical-align: middle; }
+.invisible{ visibility: hidden; } .visible{ visibility: visible; }
+
+.li_grid { display: grid; grid-template-columns: auto 1fr; column-gap: 4px; padding-left: .2rem; }
+
+/* font */
+div, p, span, label{ font-size: inherit; }
+
+/* layout */
+.layout_main{ display: flex; flex-direction: column; align-items: center; padding: 0 .6rem; margin-bottom: 20rem; }
+.layout_max{ width: 100%; max-width: var(--max_width); margin: 0 auto; }
+@media (min-width: 1212px) { .layout_main{ padding: 0; } }
+
+/* header */
+.layout_header{ position: sticky; top: 0; left: 0; z-index: 90; width: 100%; border-bottom: var(--box); background-color: #fff; padding-bottom: -1px; margin-bottom: 1rem; }
+.header_max{ display: flex; max-width: var(--max_width); margin: 0 auto; }
+.header_menu, .header_menu_svg{ display: flex; height: var(--header_height); justify-content: center; align-items: center; color: var(--gray); font-weight: bold; }
+.header_menu{ flex: 1; } .header_menu_svg{ padding: 0 1rem; }
+.header_bt{ padding: 0 .6rem; height: 3rem; font-size: 1.3rem; border: none; border-radius: 0; }
+.header_menu_notice{ animation: blink 1s infinite; }
+@keyframes blink {
+    0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; }
+}
+
+/* footer */
+.layout_footer{ position: fixed; bottom: 0; left: 0; z-index: 50; width: 100%; border-top: var(--box); background-color: #fff; }
+.dev_footer{ position: sticky; bottom: 0; left: 0; z-index: 80; width: 100%; padding: .6rem; border: solid 1px var(--pink); background-color: var(--bg); }
+
+/* position */
+.relative{ position: relative; } .overflow_hidden{ overflow: hidden; }
+
+/* display */
+.flex{ display: flex; } .flex_1{ flex: 1; }
+/* .flex_c{ display: flex; justify-content: center; align-items: center; width: 100%; } */
+.flex_between{ display: flex; justify-content: space-between; align-items: center; gap: .6rem; }
+.flex_between > div{ flex: 1; } /* /// */
+.fa_s{ justify-content: flex-start; } .fa_c{ justify-content: center; } .fa_e{ justify-content: flex-end; }
+
+/* tag */
+hr{ border: none; background-color: var(--lgray); height: 1px; }
+pre{ white-space: pre-wrap; word-break: break-all; }
+.li_pd{ padding: 0 .6rem 0 .4rem; }
+.vl{ font-size: 1.2rem; padding: 0 .4rem; }
+.sl{ padding: 0 .2rem; transform: scale(1, .8); transform-origin: center; color: var(--gray); }
+
+/* emoji */
+.mg_-l{ margin-left: -.2rem; }
+
+/* width */
+div[class*="max_w"]{ width: 100%; }
+
+
+
+/* text */
+.ta_l{text-align: left;} .ta_c{text-align: center;} .ta_r{text-align: right;}
+.fwb{font-weight: bold;} .ellipsis{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.c_white{color: var(--white);} .c_lgray{color: var(--lgray);} .c_gray{color: var(--gray);} .c_green{color: var(--green);} .c_blue{color: var(--blue);} .c_lblue{ color: var(--lblue);}
+.c_purple{color: var(--purple);} .c_pink{color: var(--pink);} .c_orange{color: var(--orange);} .c_red{color: var(--red);} .c_black{color: var(--black);}
+
+/* input */
+input[type=number]{ -moz-appearance: textfield; } ::placeholder{ color: var(--gray);}
+input:focus, textarea:focus, div[class*="editor_"]:focus{ outline: none; border: solid 1px var(--blue); }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none;  margin: 0; }
+.input, .select{ display: block; width: 100%; line-height: 3.4rem; border: solid 1px var(--lgray); padding: 0 1rem; border-radius: .4rem; }
+.select{ height: 3.4rem; padding: 0 .6rem; color: var(--gray); } .select option{ font-size: inherit; font-weight: bold; background: #f5f5f5; }
+.input_check{ width: 1.6rem; height: 1.8rem; margin-right: .6rem; vertical-align: middle; }
+.output{ border: solid 1px var(--lgray); height: 3.4rem; padding: 0 1rem; margin-bottom: 1rem; border-radius: .4rem; }
+
+/* line input, select */
+.line_input, .line_select{ flex: 1; line-height: 3.4rem; border: var(--box); border-radius: .4rem; }
+.line_input{ padding: 0 1rem; } .line_select{ padding: 0 .5rem; }
+.line_bt{ height: 3.4rem; padding: 0 1rem; margin-left: .6rem; }
+
+/* button */
+button:disabled{ opacity: .4; cursor: not-allowed; }
+button{ border: solid 1.4px var(--lgray); font-weight: bold; background-color: var(--white); border-radius: .4rem; }
+.bt_w100{ width: 100%; font-size: 1.5rem; padding: 1rem; margin: .6rem 0; }
+.bt_main, .bt_close, .bt_popup{ min-width: 6rem; height: 3.6rem; font-size: 1.5rem; padding: 0 1rem; }
+.bt_main{ margin: 0 .3rem; }
+.bt_popup{ min-width: 10rem; border: none; color: #fff; background-color: var(--blue); }
+/* flex button(modal) */
+.wrap_flex_bt{ display: flex; flex-wrap: wrap; gap: .6rem; }
+.flex_bt{ flex: 1 100%; font-size: 1.5rem; padding: 1rem 0; }
+@media (min-width: 640px) {
+    .wrap_flex_bt{ flex-wrap: nowrap; }
+    .flex_bt{ flex: 1 1 100%; padding: 2rem 0; }
+}
+
+/* background */
+.bg{ background-color: var(--bg); }
+.bg_green{ background: #c4ffca40; }
+.bg_blue{ background: #6495ED10; }
+.bg_orange{ background: #FFBF0040; }
+.bg_red{ background: #DE316310; }

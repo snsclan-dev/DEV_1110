@@ -1,0 +1,82 @@
+/* layout(tab) */
+.layout_tab{ position: fixed; top: calc(var(--header_height) + 1px); left: 0; right: 0; z-index: 500; height: calc(100vh - var(--header_height)); overflow: auto; background-color: #fff; }
+
+/* loading */
+.layout_loading{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; }
+.loader{ position: absolute; top: 50%; left: 50%; width: 50px; border-radius: 50%; aspect-ratio: 1; animation: kf 1s infinite linear; opacity: .8; background: radial-gradient(farthest-side, var(--blue) 94%, #0000) top/8px 8px no-repeat, conic-gradient(#0000 30%, var(--blue)); -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0); transform: translate(-50%, -50%) rotate(0deg); }
+@keyframes kf { 100% { transform: translate(-50%, -50%) rotate(1turn) } }
+
+/* spinner */
+.layout_spinner{ display: flex; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 24px; height: 24px; justify-content: center; align-items: center; }
+.spinner{ width: 24px; height: 24px; border-radius: 50%; animation: spinner 1s infinite linear;
+    background: radial-gradient(farthest-side, var(--gray) 94%, #0000) top/6px 6px no-repeat, conic-gradient(#0000 30%, var(--gray)); -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 6px), #000 0); }
+@keyframes spinner { 100% { transform: rotate(1turn) } }
+
+/* modal(popup): max-width: 80rem */
+.layout_modal, .layout_popup, .layout_confirm{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; animation: fade .4s; background-color: rgba(0, 0, 0, 0.3); animation: fade .4s;}
+.layout_modal{ z-index: 900; } .layout_popup{ z-index: 910; } .layout_confirm{ z-index: 920; }
+.wrap_modal{ position: fixed; top: 40%; left: 50%; width: calc(100% - 1.6rem); max-width: 60rem; border: solid 1px var(--gray); background-color: #fff; border-radius: .6rem; box-shadow: .2rem .2rem 1rem var(--black); transform: translate(-50%, -50%); overflow: hidden; }
+.popup_status{ font-weight: bold; padding: .8rem 1.2rem; }
+.layout_message{ width: 100%; max-width: 60rem; border: solid 1.4px var(--lgray); border-radius: .6rem; margin: 0 auto; }
+.wrap_message{ display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 20rem; }
+
+/* .confirm_view{ padding: 1rem .4rem 0;  } */
+.modal_view{ min-height: 6rem; padding: 1rem 1.2rem; }
+.modal_view_note{ padding: 1rem; margin: 0 1rem; border-radius: .6rem; }
+@keyframes fade{ 0% { opacity: 0; } 30% { opacity: 1; } }
+
+/* modal(image) click */
+.layout_image{ position: fixed; z-index: 100; top: 0; left: 0; width: 100%; height: 100%; overflow: auto; background: rgba(0, 0, 0, 0.6); }
+.wrap_image{ text-align: center; animation-name: zoom; animation-duration: 0.3s; }
+.wrap_image img{ max-width: 80rem; margin: 3rem 0; }
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+@media (min-width: 800px) { .wrap_image img{ max-width: 120rem; } }
+@media (min-width: 1600px) { .wrap_image img{ max-width: 160rem; } }
+
+/* modal(video) click */
+.layout_video{ position: fixed; z-index: 90; top: 1%; left: 50%; transform: translate(-50%, 0%); overflow: hidden; min-width: 38rem; max-width: 60rem; border: solid 1px #ccc; background: #fff; border-radius: .6rem; box-shadow: .3rem .3rem 1rem var(--black); }
+.layout_video video{ width: 100%; max-height: 30rem;}
+@media (min-width: 800px) { .layout_video video{ max-height: 40rem; } }
+
+/* pagination */
+.layout_paging{display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr; max-width: 40rem; margin: 3rem auto 1rem;}
+.page_list, .page_left, .page_right{line-height: 3rem; margin-bottom: .6rem;}
+.page_list{grid-column: 1/3; grid-row: 1/2; text-align: center;}
+.page_left{grid-column: 1/2; grid-row: 2/3; text-align: left;}
+.page_right{grid-column: 2/3; grid-row: 2/3; text-align: right;}
+.page_now, .page{display: inLine-block; padding: 0 1rem; font-weight: bold; border: var(--box); background: #fff; margin: 0 .2rem; border-radius: .4rem; }
+.page_now, .page:hover{ background: #0066cc; color: #fff; cursor: pointer;}
+.page{color: #0066cc; border: var(--box);}
+
+/* main(thumbnail) upload image */
+.wrap_main_image{ display: flex; border: var(--box); padding: 1rem; border-radius: .4rem; }
+.main_image_preview{ flex: 1 0 20rem; max-width: 50%; height: 16rem; border: var(--box); padding: .4rem; border-radius: .6rem; }
+.main_image_preview img{ width: 100%; height: 100%; object-fit: cover; border-radius: .6rem; }
+.main_image_box{ display: flex; flex: 1; flex-direction: column; justify-content: center; align-items: center; }
+.main_image_bt{ width: 16rem; height: 4rem; font-size: 1.5rem; margin: .3rem; }
+@media (min-width: 800px) {
+    .main_image_preview{ height: 20rem; }
+    .main_image_box{ flex-direction: row; }
+}
+
+/* preview upload image(video) > 1 ~ 5 */
+.wrap_preview{ height: 16rem; border: var(--box); padding: .4rem; border-radius: .6rem; }
+.placeholder{ display: flex; height: 16rem; justify-content: center; align-items: center; margin: -.5rem;}
+[class^="preview_map"]{ display: inline-block; height: 100%; padding: .2rem; vertical-align: middle; }
+[class^="preview_map"] img, [class^="preview_map"] video{ width: 100%; height: 100%; object-fit: cover; border-radius: .6rem; }
+.preview_map1{ width: 100%; } .preview_map2{ width: calc(100% * 1/2); } .preview_map3{ width: calc(100% * 1/3); } .preview_map4{ width: calc(100% * 1/4); } .preview_map5{ width: calc(100% * 1/5); }
+
+.editor_notice{ border: solid 1.4px var(--lgray); border-radius: .6rem; padding: 1rem; margin: 2rem 0; }
+.editor_notice:hover{ border: solid 1.4px var(--blue); }
+
+/* textarea autosize */
+.textarea{ display: block; width: 100%; line-height: 2.4rem; border: solid 1px #ccc; padding: .4rem .8rem; border-radius: .6rem; resize: none; overflow-wrap: break-word; }
+
+/* kakao map */
+#map{ touch-action: auto; -ms-touch-action: auto; pointer-events: auto; }
+.kakao_map{ width: 100%; height: 30rem; }
+.kakao_overlay{ max-width: 30rem; border: 1.4px solid var(--blue); border-radius: .6rem; background: rgba(255,255,255,0.9); padding: .4rem 1rem;  overflow-wrap: break-word; word-break: keep-all; }
+.kakao_button{ position: absolute; bottom: 0; right: 0; z-index: 10; }
+@media (min-width: 800px) {
+    .kakao_map{ height: 40rem; }
+}

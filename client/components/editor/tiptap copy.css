@@ -1,0 +1,54 @@
+/* toolbar button */
+.tiptab_toolbar{ position: sticky; top: 12rem; z-index: 60; }
+.bt_tiptap{ margin: .4rem .2rem; }
+.input_color{ height: 2.6rem; border: none; background: none; vertical-align: middle; }
+
+/* tiptap note */
+.tiptap{ word-wrap: break-word; word-break: keep-all; }
+.tiptap:focus{ outline: none; }
+.tiptap p{ line-height: 2.6rem;}
+.tiptap p:empty::before{ content: ''; display: inline-block; }
+.tiptap a{ color: var(--green);}
+.tiptap hr{ border-top: 2px solid var(--lgray); border-bottom: none; margin: 1rem 0; }
+.tiptap .iframe-wrapper{ width: 100%; }
+.iframe-wrapper iframe{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.tiptap ul{ margin-left: 1.6rem;}
+.tiptap ul[data-type="taskList"]{ list-style: none; margin-left: 0; padding: 0; }
+.tiptap ul[data-type="taskList"] li { display: flex; align-items: flex-start; }
+.tiptap li div{ flex: 1 1 auto; }
+.tiptap li label{ flex: 0 0 auto; margin-right: .6rem; user-select: none; }
+.tiptap ul li::marker{ color: var(--blue); }
+.tiptap input[type="checkbox"]{ width: 1.6rem; height: 1.6rem; vertical-align: middle; cursor: pointer; }
+
+/* editor ProseMirror */
+.ProseMirror{ min-height: 15rem; background: var(--white); padding: 1rem; border-radius: .6rem; }
+.ProseMirror p{ border-bottom: solid 1px #e1e1e1; }
+.ProseMirror-selectednode{ outline: 2px solid var(--orange); }
+
+.ProseMirror .iframe-wrapper, .tiptap .iframe-wrapper{ position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; height: auto; margin: 0 auto; }
+.ProseMirror .iframe-wrapper{ width: 50%; }
+
+/* Tiptap.jsx > image */
+.tiptap_editor img{ display: inline-block; width: calc(100% / 3); height: 20rem; border: solid 1px var(--orange); padding: .2rem; object-fit: cover; }
+
+.tiptap_image img{ max-width: 90%; max-height: 60rem; padding: .2rem; }
+.tiptap_note img, .tiptap_comment img{ display: inline-block; width: calc(100% / 3); height: 20rem; padding: .2rem; margin: .5rem auto; vertical-align: middle; object-fit: cover; transition: all 0.3s ease; }
+
+.tiptap_note_view img{ display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; margin: 1rem auto; }
+.tiptap_image_view img{ max-width: 100%; max-height: 60rem; padding: .2rem; }
+
+/* Tiptap.jsx > video */
+.tiptap_editor video{ display: inline-block; width: calc(100% / 2); height: 30rem; border: solid 1px var(--orange); padding: .2rem; }
+.tiptap_note video{ display: block; width: 100%; height: 30rem; padding: .2rem; }
+
+@media (min-width: 600px) {
+    .tiptap_note img{ height: 24rem; }
+    .tiptap_comment img{ height: 24rem; }
+    .tiptap_note video{ display: inline-block; width: calc(100% / 2); }
+}
+@media (min-width: 800px) {
+    .tiptap_image img{ max-height: 80rem; }
+    .tiptap_note img{ height: 40rem; }
+    .tiptap_comment img{ height: 30rem; }
+}

@@ -1,0 +1,28 @@
+# ignore files
+/client/.gitignore
+/server/.gitignore
+
+# dependencies
+/client/node_modules
+/server/node_modules
+
+# next.js
+/client/.next/
+/client/out/
+
+# env
+/client/.env*
+/server/.env*
+
+# vercel
+/client/.vercel
+
+# typescript
+/client/*.tsbuildinfo
+/client/next-env.d.ts
+
+# custom
+/client/public/logo.png
+/client/public/telegram.jpg
+/client/*.txt
+/server/*.txt

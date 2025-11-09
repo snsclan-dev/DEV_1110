@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs", //어떤 모듈 방식으로 컴파일할지 설정
+    "outDir": "./dist", //컴파일 후 js 파일들이 생성되는 곳
+    "rootDir": "./src", //루트 폴더
+    "strict": true, //strict 옵션 활성화
+    "moduleResolution": "node", //모듈 해석 방법 설정: 'node' (Node.js)
+    "resolveJsonModule": true, //JSON 모듈을 가져오기 허용
+    "esModuleInterop": true, // 모든 가져오기에 대한 네임스페이스 객체 생성을 통해 CommonJS와 ES 모듈 간의 상호 운용성을 제공
+    "sourceMap": true, //소스맵 적용 여부
+    // "noImplicitAny": false,
+    "noEmitOnError": true, // 컴파일 오류가 있는 경우 출력 파일을 생성하지 않음
+    "baseUrl": "./src", //기본 URL 설정
+    // "typeRoots": ["./src/types", "./node_modules/@types"],
+    "paths": {
+      // "@/*": ["src/*"],
+    },
+  },
+  "ts-node": { "files": true },
+  // "include": ["src", "**/*.ts", "**/*.d.ts"], //컴파일할 파일들
+  "include": ["src", "src/types"],
+  "exclude": ["node_modules", "dist"]
+}

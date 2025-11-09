@@ -1,0 +1,3 @@
+.wrap_room_menru{ display: flex; border: solid 1px var(--gray); overflow: hidden;}
+.room_menu{ flex: 1; color: var(--gray); background-color: var(--bg); font-weight: bold; padding: .4rem;  }
+.room_menu:focus, .room_menu:hover{ color: var(--blue);  }

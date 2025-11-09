@@ -1,0 +1,46 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack -p 50000",
+    "build": "next build",
+    "start": "next start -p 50000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tiptap/extension-bold": "^3.6.6",
+    "@tiptap/extension-document": "^3.6.6",
+    "@tiptap/extension-horizontal-rule": "^3.6.6",
+    "@tiptap/extension-image": "^3.6.6",
+    "@tiptap/extension-link": "^3.6.6",
+    "@tiptap/extension-list": "^3.6.6",
+    "@tiptap/extension-paragraph": "^3.6.6",
+    "@tiptap/extension-strike": "^3.6.6",
+    "@tiptap/extension-text": "^3.6.6",
+    "@tiptap/extension-text-align": "^3.6.6",
+    "@tiptap/extension-text-style": "^3.6.6",
+    "@tiptap/extensions": "^3.6.6",
+    "@tiptap/pm": "^3.6.6",
+    "@tiptap/react": "^3.6.6",
+    "dayjs": "^1.11.18",
+    "html-react-parser": "^5.2.7",
+    "js-cookie": "^3.0.5",
+    "next": "^15.4.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "socket.io-client": "^4.8.1",
+    "zustand": "^5.0.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.5",
+    "sass": "^1.93.2",
+    "typescript": "^5"
+  }
+}

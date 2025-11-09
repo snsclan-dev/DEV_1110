@@ -1,0 +1,1 @@
+export const $ROOM_STATUS = { 'ROOM_0': 0, 'NAME_1': 1, 'WAIT_2': 2, 'CHAT_3': 3, 'ADMIN_4': 4 };

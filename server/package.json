@@ -1,0 +1,39 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "dev_start": "ts-node src/server.ts",
+    "dev:server": "cross-env NODE_ENV=development nodemon --watch src --exec ts-node -r tsconfig-paths/register ./src/server.ts",
+    "dev:socket": "cross-env NODE_ENV=development nodemon --watch src --exec ts-node -r tsconfig-paths/register ./src/socket.ts",
+    "dev": "concurrently --names \"server,socket\" \"npm run dev:server\" \"npm run dev:socket\"",
+    "build": "tsc",
+    "start": "node dist/server.ts"
+  },
+  "dependencies": {
+    "@socket.io/redis-adapter": "^8.3.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.3",
+    "redis": "^5.7.0",
+    "socket.io": "^4.8.1",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.1.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
+  }
+}

@@ -1,0 +1,33 @@
+div[class*="box"]{ border-radius: .6rem; overflow: hidden; } .box{ border: var(--box); }
+svg[class^="svg_"]{ vertical-align: middle; cursor: pointer; }
+
+$colors: (
+    "white": var(--white), "lgray": var(--lgray), "gray": var(--gray), "black": var(--black), "green": var(--green), "lblue": var(--lblue), "blue": var(--blue), "pink": var(--pink), "orange": var(--orange), "red": var(--red)
+);
+@each $key, $value in $colors {
+    .box_#{$key} { border: solid 1.4px #{$value}; }
+    .svg_#{$key} { fill: #{$value}; }
+}
+
+button[class^="tag_"], button[class^="level_"]{ font-size: 1.2rem; font-weight: bold; min-width: 3rem; }
+button[class^="tag_"]{ height: 2.6rem; padding: 0 .6rem; background: none; }
+button[class^="level_"]{ line-height: 2.2rem; padding: 0 .4rem; border: none; }
+
+$borders: ( "red": #f00, "orange": #ffc655, "pink": #faa8d5, "purple": #7F00FF, "blue": #65c7ff, "green": #01cb01, "gray": #d8dcd8 );
+@each $key, $value in $borders {
+    .tag_#{$key} { border: solid 1.4px #{$value}; color: var(--#{$key}); }
+}
+$levels: (
+    "red": linear-gradient(135deg, #f00, #fdc254),
+    "orange": linear-gradient(135deg, #ff643a, #fabe46),
+    "pink": linear-gradient(135deg, #ec008c, #faa8d5),
+    "purple": linear-gradient(135deg, #7F00FF, #faa8d5),
+    "black": linear-gradient(135deg, #000, #73797180),
+    "blue": linear-gradient(135deg, #2B32B2, #65c7ff),
+    "green": linear-gradient(135deg, #449f2b, #86f966),
+    "gray": linear-gradient(135deg, #737971, #d8dcd8),
+    "lgray": linear-gradient(135deg, #73797150, #d8dcd8)
+);
+@each $key, $value in $levels {
+    .level_#{$key} { color: #fff; background: #{$value}; }
+}
